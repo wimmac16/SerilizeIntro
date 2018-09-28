@@ -8,8 +8,11 @@ package serilizeintro;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -41,21 +44,19 @@ public class SchuelerBL extends AbstractListModel{
         
     }
     public void save(File f)throws Exception{
-        BufferedWriter bw=new BufferedWriter(new FileWriter (f));
+        ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(f));
         for (Schueler s : klasse) {
-            bw.write(s.getName());
-            bw.write(";");
-            bw.write(s.getBirthday().toString());
-            bw.newLine();
+            oos.writeObject(s);
         }
-        
-        bw.flush();
-        bw.close();
+        oos.flush();
+        oos.close();
     }
     public void print(){
         for (Schueler s : klasse) {
             System.out.format("%s %s\n", s.getName(),s.getBirthday());
         }
     }
+    
+
     
 }

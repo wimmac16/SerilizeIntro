@@ -17,7 +17,7 @@ public class LoadTester {
         SchuelerBL bl=new SchuelerBL();
         
         try{
-            bl.load(new File("./klasse.csv"));
+            bl.load(new File("C:/Users/mwimm/OneDrive/1819_Schule/SerilizeIntro/SerilizeIntro"));
             bl.print();
         }catch(Exception e){
             e.printStackTrace();
