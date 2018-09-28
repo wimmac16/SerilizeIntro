@@ -23,7 +23,7 @@ public class SaveTester {
                 bl.add(s1);
                 
                 try{
-                    bl.save(new File("./klasse.csv"));
+                    bl.save(new File("./klasse.bin"));
                     
                 }catch(Exception e){
                     e.printStackTrace();
